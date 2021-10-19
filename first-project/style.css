@@ -134,3 +134,6 @@ body {
 .exitWin {
   background-image: url("exit.png");
 }
+.keyscore {
+  left: 500px;
+}
