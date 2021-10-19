@@ -43,9 +43,9 @@ body {
   position: relative;
 }
 .moveRight {
-  animation: block 10s;
+  animation: blockRight 10s infinite;
 }
-@keyframes block {
+@keyframes blockRight {
   from {
     left: 240px;
   }
@@ -55,9 +55,9 @@ body {
 }
 
 .moveDown {
-  animation: blok 10s;
+  animation: blockDown 10s infinite;
 }
-@keyframes blok {
+@keyframes blockDown {
   from {
     top: 240px;
   }
@@ -67,9 +67,9 @@ body {
 }
 
 .moveLeft {
-  animation: blo 10s;
+  animation: blockLeft 10s infinite;
 }
-@keyframes blo {
+@keyframes blockLeft {
   from {
     left: 240px;
   }
@@ -79,9 +79,9 @@ body {
 }
 
 .moveUp {
-  animation: bloc 10s;
+  animation: blockUp 10s infinite;
 }
-@keyframes bloc {
+@keyframes blockUp {
   from {
     top: 240px;
   }

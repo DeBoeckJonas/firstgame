@@ -24,39 +24,41 @@ function rgbRandom() {
 
 start.addEventListener("click", colorChange);
 
-document.body.onkeydown = function (direction) {
-  if (direction.keyCode == 39) {
-    block.classList.remove("moveDown");
-    block.classList.remove("moveUp");
-    block.classList.remove("moveLeft");
-    block.classList.add("moveRight");
-  } else if (direction.keyCode == 40) {
-    block.classList.remove("moveRight");
-    block.classList.remove("moveUp");
-    block.classList.remove("moveLeft");
-    block.classList.add("moveDown");
-  } else if (direction.keyCode == 38) {
-    block.classList.remove("moveRight");
-    block.classList.remove("moveDown");
-    block.classList.remove("moveLeft");
-    block.classList.add("moveUp");
-  } else if (direction.keyCode == 37) {
-    block.classList.remove("moveRight");
-    block.classList.remove("moveDown");
-    block.classList.remove("moveUp");
-    block.classList.add("moveLeft");
-  } else if (direction.keyCode == 32) {
-    block.classList.remove("moveRight");
-    block.classList.remove("moveDown");
-    block.classList.remove("moveUp");
-    block.classList.remove("moveLeft");
-  }
-};
-position = block.getBoundingClientRect();
+//recall function over and over again
+moveCenterBlock();
 
-<<<<<<< Updated upstream
-// 318.3999938964844 668.5499877929688 338.3999938964844 648.5499877929688
-=======
+window.setInterval(function () {
+  moveCenterBlock();
+}, 10000);
+
+//function declarations//
+////////////////////////
+
+function moveCenterBlock() {
+  let directionCenterBlock = Math.random() * 10;
+  if (directionCenterBlock < 3) {
+    removeDown();
+    removeUp();
+    removeLeft();
+    block.classList.add("moveRight");
+  } else if (directionCenterBlock >= 3 && directionCenterBlock < 6) {
+    removeRight();
+    removeUp();
+    removeLeft();
+    block.classList.add("moveDown");
+  } else if (directionCenterBlock >= 6 && directionCenterBlock < 8) {
+    removeRight();
+    removeDown();
+    removeLeft();
+    block.classList.add("moveUp");
+  } else if (directionCenterBlock >= 8 && directionCenterBlock < 11) {
+    removeRight();
+    removeDown();
+    removeUp();
+    block.classList.add("moveLeft");
+  }
+}
+
 function removeRight() {
   block.classList.remove("moveRight");
 }
@@ -111,7 +113,6 @@ function createBoard() {
     const square = document.createElement("div");
     grid.appendChild(square);
     squares.push(square);
-
     if (layout[i] === 1) {
       squares[i].classList.add("wall");
     }
@@ -123,10 +124,12 @@ createBoard();
 ///////////////////////////
 
 //starting position//
+
 let playerCurrentIndex = 754;
 squares[playerCurrentIndex].classList.add("player");
 
 //move//
+
 function movePlayer(e) {
   squares[playerCurrentIndex].classList.remove("player");
   switch (e.keyCode) {
@@ -162,4 +165,3 @@ function movePlayer(e) {
   squares[playerCurrentIndex].classList.add("player");
 }
 document.addEventListener("keyup", movePlayer);
->>>>>>> Stashed changes
